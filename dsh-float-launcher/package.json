@@ -1,0 +1,42 @@
+{
+  "name": "dsh-float-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "在 dsh 会话标题旁启动或唤起独立置顶浮窗 DshFloat。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "id": "dsh-float-launcher",
+    "name": "dsh 浮窗快捷入口",
+    "version": "0.1.0",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1"
+  },
+  "scripts": {
+    "test": "node test/run-all.mjs"
+  }
+}

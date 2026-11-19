@@ -1,0 +1,11 @@
+node_modules/
+*.log
+tools/dsh-float/*.exe
+
+# DshFloat 构建产物与第三方二进制
+tools/dsh-float/dist/
+tools/dsh-float/webview2/*.dll
+tools/dsh-float/*.png
+
+# 发布包
+release/

@@ -1,0 +1,7 @@
+# dsh-float-launcher
+# 在 profile 的 bundle 列表里加入 dsh-float-launcher 后，本 patch 自动插入插件条目。
+- insert:
+    - id: dsh-float-launcher
+      name: dsh-float-launcher
+      config:
+        enabled: true

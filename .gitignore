@@ -7,5 +7,5 @@ tools/dsh-float/dist/
 tools/dsh-float/webview2/*.dll
 tools/dsh-float/*.png
 
-# 发布包
-release/
+# 发布包（只忽略仓库根目录的 release，保留 tools/release 打包脚本）
+/release/

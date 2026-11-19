@@ -14,6 +14,8 @@
 - 首次下载 WebView2 SDK：`pwsh -File tools/dsh-float/fetch-webview2.ps1`
 - 构建 DshFloat：`pwsh -File tools/dsh-float/build-webview.ps1`
 - DshFloat 自检：`tools/dsh-float/dist/DshFloat.exe --test`（退出码 0 通过）
+- 打包发行版：`pwsh -File tools/release/package.ps1 -Version 0.5`
+- 发行安装/卸载回归：`pwsh -File tools/release/test.ps1`
 
 ## 架构约束
 

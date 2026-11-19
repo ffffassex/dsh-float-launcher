@@ -24,6 +24,7 @@
 |---|---|
 | `tools/dsh-float/` | `DshFloat.exe`：WinForms + WebView2 浮窗、本地桥接、UI |
 | `dsh-float-launcher/` | dsh 插件：会话标题栏入口 + `/dsh-float/api/launch` 宿主路由 |
+| `tools/release/` | 一键安装打包、安装/卸载脚本与发行回归 |
 | `docs/product-design.md` | MVP 产品设计与边界 |
 
 ## 环境
@@ -35,7 +36,24 @@
 
 ## 快速开始
 
-### 1. 构建浮窗
+### 一键安装版（推荐）
+
+在仓库根目录生成发行包：
+
+```powershell
+pwsh -File tools/release/package.ps1 -Version 0.5
+```
+
+产物为 `release/DshFloat-0.5-installer-win64.zip`。用户解压后双击 `install.cmd` 即可：
+
+- 当前用户免管理员安装，不写系统级注册表
+- 默认装到 `D:\DshFloat`；没有 D 盘则装到 `%LOCALAPPDATA%\Programs\DshFloat`
+- 自动安装 `DshFloat.exe`、dsh 插件、桌面与开始菜单快捷方式
+- 开始菜单「DshFloat」内提供「卸载 DshFloat」
+
+安装包目前是 zip + `install.cmd`，不是单文件 `Setup.exe`；需要单文件安装器时可再包 Inno Setup。
+
+### 手动构建浮窗
 
 ```powershell
 pwsh -File tools/dsh-float/fetch-webview2.ps1   # 首次，下载 WebView2 SDK
@@ -88,6 +106,9 @@ node dsh-float-launcher/test/run-all.mjs
 
 # 浮窗自检（先生成 dist）
 & ".\tools\dsh-float\dist\DshFloat.exe" --test
+
+# 发行安装/卸载回归（临时 profile，不碰真实 dsh）
+pwsh -File tools/release/test.ps1
 ```
 
 ## 已知限制
@@ -102,4 +123,5 @@ node dsh-float-launcher/test/run-all.mjs
 
 - [`tools/dsh-float/README.md`](tools/dsh-float/README.md)：浮窗架构、构建、RPC 约定、限制
 - [`dsh-float-launcher/README.md`](dsh-float-launcher/README.md)：槽位、路由、安装、测试
+- [`tools/release/README.md`](tools/release/README.md)：发行包结构与安装器行为
 - [`docs/product-design.md`](docs/product-design.md)：MVP 设计稿

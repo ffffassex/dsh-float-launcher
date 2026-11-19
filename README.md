@@ -88,7 +88,7 @@ cmd /c mklink /J "%USERPROFILE%\.dsh\plugins\dsh-float-launcher" "$PWD\dsh-float
 
 并在 `dsh.profile.bundles` 里加入 `"dsh-float-launcher"`。完整步骤、配置和卸载方式见 [`dsh-float-launcher/README.md`](dsh-float-launcher/README.md)。
 
-重启 dsh 后，打开任意会话，标题栏「梁神模式」右侧会出现「浮窗」按钮。
+重启 dsh 后，打开任意会话，标题栏会出现「浮窗」按钮。它不依赖「梁神模式」——后者是你自行安装的第三方插件，不是 dsh 原生功能；如果同时启用了它，浮窗入口通常会排在它右侧。
 
 ## 配置
 

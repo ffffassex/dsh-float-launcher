@@ -3,8 +3,10 @@
  *
  * 在 conversation.session.header.actions 注册一个紧凑 chip：
  *   id: dsh-float.launcher / order: -9
- * agent-preset（梁神模式）的 order 是 -10，所以这个 chip 紧挨在它右侧，
- * 排在 subagent-catalog(10)、job-list(20) 前面。
+ * order -9 只是靠左排序；若用户同时启用了 order 更小的 header 插件
+ * （例如「梁神模式」，注意它是第三方插件，不是 dsh 原生功能），
+ * 这个 chip 会排在它右侧；未启用时也不依赖它。
+ * 同时排在 subagent-catalog(10)、job-list(20) 前面。
  *
  * 只在本机回环页面或桌面版 dsh-app 页面显示；远程/手机页面不提供“启动本机 exe”的入口。
  */

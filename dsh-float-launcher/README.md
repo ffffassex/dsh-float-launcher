@@ -1,6 +1,6 @@
 # dsh-float-launcher
 
-在 dsh 会话标题旁（「梁神模式」右侧）放一个紧凑的「浮窗」入口：
+在 dsh 会话标题旁放一个紧凑的「浮窗」入口（不依赖「梁神模式」这类第三方 header 插件）：
 
 - DshFloat 没运行 → `spawn` 独立的 `DshFloat.exe`，置顶窗启动；
 - DshFloat 已在运行 → `POST /show` 把现有窗口唤到前台，不重复启动。
@@ -11,8 +11,8 @@
 |---|---|
 | 槽位 | `conversation.session.header.actions` |
 | id | `dsh-float.launcher` |
-| order | `-9`（`agent-preset` 是 `-10`，紧跟其右） |
-| 范围 | 仅会话页；首页没有「梁神模式」，因此首页仍用 `Ctrl+Alt+F` |
+| order | `-9`（若同时启用了 order 更小的 header 插件，例如用户自行安装的「梁神模式」，会排在它右侧；未安装时不影响） |
+| 范围 | 仅会话页；首页没有会话 header，因此首页仍用 `Ctrl+Alt+F` |
 
 ## 桌面端
 
